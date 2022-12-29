@@ -1,0 +1,283 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.5
+-- Dumped by pg_dump version 14.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: coba; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.coba (
+    datas character varying(100)
+);
+
+
+ALTER TABLE public.coba OWNER TO postgres;
+
+--
+-- Name: datas; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.datas (
+    id integer,
+    nama character varying(100),
+    age character varying(100)
+);
+
+
+ALTER TABLE public.datas OWNER TO postgres;
+
+--
+-- Name: tblbookcategories; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tblbookcategories (
+    pk_categoryid character varying(20) NOT NULL,
+    category_name character varying(50) NOT NULL
+);
+
+
+ALTER TABLE public.tblbookcategories OWNER TO postgres;
+
+--
+-- Name: tblbookcontent; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tblbookcontent (
+    page integer NOT NULL,
+    book_content text,
+    pk_bookdetail character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public.tblbookcontent OWNER TO postgres;
+
+--
+-- Name: tblbookdetail; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tblbookdetail (
+    pk_bookdetail character varying(20) NOT NULL,
+    title character varying(100) NOT NULL,
+    creator character varying(50) NOT NULL,
+    subject character varying(100) NOT NULL,
+    description text NOT NULL,
+    publisher character varying(100) NOT NULL,
+    contributor character varying(100),
+    tanggal_terbit character varying(100) NOT NULL,
+    resource_identifier character varying(100) NOT NULL,
+    source character varying(100) NOT NULL,
+    rights boolean NOT NULL,
+    pages integer,
+    pk_categoryid character varying(20),
+    pk_subcategoryid character varying(20)
+);
+
+
+ALTER TABLE public.tblbookdetail OWNER TO postgres;
+
+--
+-- Name: tblbooksubcategories; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tblbooksubcategories (
+    pk_subcategoryid character varying(20) NOT NULL,
+    sub_category_name character varying(50) NOT NULL,
+    pk_categoryid character varying(20)
+);
+
+
+ALTER TABLE public.tblbooksubcategories OWNER TO postgres;
+
+--
+-- Name: tblofcontent; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.tblofcontent (
+    pk_bookdetail character varying(20),
+    pk_tblofcontent character varying(20),
+    text character varying(150) NOT NULL,
+    page integer,
+    sub text
+);
+
+
+ALTER TABLE public.tblofcontent OWNER TO postgres;
+
+--
+-- Data for Name: coba; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.coba (datas) FROM stdin;
+\.
+
+
+--
+-- Data for Name: datas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.datas (id, nama, age) FROM stdin;
+\N	rizky	23
+\N	rizky	23
+494	rizky	23
+390	rizky	23
+829	rizky	23
+592	yasing	53
+606	april	30
+374	valdi	24
+957	icha	3
+657	wido	75
+\.
+
+
+--
+-- Data for Name: tblbookcategories; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tblbookcategories (pk_categoryid, category_name) FROM stdin;
+fiqi11	Fiqih
+akhl529	Akhlak
+\.
+
+
+--
+-- Data for Name: tblbookcontent; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tblbookcontent (page, book_content, pk_bookdetail) FROM stdin;
+6	<h1>Bab 1 : Pensyariatan Puasa</h1><p>\nDalam syariat Islam, ibadah puasa didasarkan pensyariatannya\n    di atas sumber-sumber utama, yaitu Al-Quran Al-Kariem, As-Sunnah AnNabawiyah\n    dan juga Ijma’ (konsensus) seluruh ulama.\n\n&nbsp;\n\nSebelum diwajibkan puasa Ramadhan, Rasulullah SAW dan para\n    shahabat telah mendapatkan perintah untuk mengerjakan puasa, diantaranya adalah\n    puasa tiga hari setiap bulan dan puasa pada tanggal 10 Muharram (Asyura’).\n\n&nbsp;\n\nRasulullah SAW berpuasa tiga hari pada setiap bulannya dan\n    beliau berpuasa di hari Asyura. (HR. Abu Daud)\n\nLalu turunlah ayat yang memerintahkan beliau untuk\n    mengerjakan puasa fardhu hanya di bulan Ramadhan saja. Sehingga semua puasa\n    yang sudah ada sebelumnya tidak diwajibkan lagi, namun kedudukannya menjadi\n    sunnah. Beliau sempat berpuasa sebelum Ramadhan selama 17 bulan</p>	Seja839
+8	<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">"Rasulullah SAW berpuasa Ramadhan selama 9 tahun. Sebab puasa\n    Ramadhan diwajibkan pada bulan Sya'ban tahun kedua hijriyah, lalu beliau SAW\n    wafat bulan Rabi'ul Awwal tahun kesebelas hijriyah.</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">1. Al-Quran Al-Kariem</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">Kewajiban puasa Ramadhan didasari oleh AlQuran, As-Sunah dan\n    Ijma‘. Allah telah mewajibkan umat Islam untuk berpuasa bulan Ramadhan dalam\n    Al-Quran Al-Karim.</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">&nbsp;<br></p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">Dasar dari ayat Al-Quran adalah :</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">&nbsp;<br></p>\n\n<p class="MsoNormal" style="margin: 0px; font-family: Calibri, sans-serif; font-size: 16px;"><span lang="AR-SA" dir="RTL" style="font-family: Impact, Charcoal, sans-serif;">يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا\n        كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ\n        لَعَلَّكُمْ تَتَّقُوْنَۙ</span></p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">&nbsp;<br></p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">Wahai orang yang beriman, diwajibkan kepadamu berpuasa\n    sebagaiman telah diwajibkan kepada umat sebelummu agar kamu bertaqwa. (QS\n    Al-Baqarah : 183)</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">Dan juga ayat berikut :</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">&nbsp;<br></p>\n\n<p class="MsoNormal" style="margin: 0px; font-family: Calibri, sans-serif; font-size: 16px;"><span lang="AR-SA" dir="RTL" style="font-family: Impact, Charcoal, sans-serif;">فَمَنْ شَهِدَ مِنْكُمُ الشَّهْرَ\n        فَلْيَصُمْهُ</span>ۗ</p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">&nbsp;<br></p>\n\n<p class="MsoNormal" style="margin: 0px; font-size: 16px; font-family: Calibri, sans-serif;">Siapa diantara kalian yang menyaksikan bulan (Ramadhan),\n    maka berpuasalah. (QS. Al-Baqarah :"</p>	Seja839
+\.
+
+
+--
+-- Data for Name: tblbookdetail; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tblbookdetail (pk_bookdetail, title, creator, subject, description, publisher, contributor, tanggal_terbit, resource_identifier, source, rights, pages, pk_categoryid, pk_subcategoryid) FROM stdin;
+Seja839	Sejarah Puasa	Ahmad Sarwat, Lc., MA	Puasa	Buku ini membahas tentang Sejarah Pensyariatan Puasa dari umat-umat sebelum masa Nabi Muhammad SAW sampai dengan masa Nabi Muhammad SAW.	Rumah Fiqih Publishing	Fatih (Editor), Fayyad & Fawwaz (Setting & Lay Out), Faqih (Desain Cover). 	2021-04-02	-	https://www.rumahfiqih.com/pdf/355	t	28	fiqi11	\N
+Adab683	Adab Murid Terhadap Diri Sendiri	Syafri M. Noor, Lc , Kategori buku	Adab	Pertama, hendaknya membersihkan hati dari segala perbuatan curang, kotor, benci, dengki, akidah yang buruk dan perangai (budi pekerti) yang tidak baik; hal itu dilakukan untuk memperbaiki dalam menerima ilmu, menjaganya serta mengulas makna-maknanya secara detail dan hakikat-hakikatnya yang samar.	-	-	2020-01-07	-	-	t	45	akhl529	\N
+\.
+
+
+--
+-- Data for Name: tblbooksubcategories; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tblbooksubcategories (pk_subcategoryid, sub_category_name, pk_categoryid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: tblofcontent; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.tblofcontent (pk_bookdetail, pk_tblofcontent, text, page, sub) FROM stdin;
+Seja839	root-bab-725	BAB 4. Pensyariatan Puasa di Masa Nabi Muhammad SAW	21	[{"parentID":"root-bab-725","id":3,"text":"Pendapat Pertama","page":"21","sub":[]},{"parentID":"root-bab-725","id":4,"text":"Pendapat Kedua","page":"22","sub":[{"parentId":4,"id":"1-subsubbab","text":"Pertama : Puasa Ramadhan","page":"22"},{"parentId":4,"id":"2-subsubbab","text":"Kedua : Puasa Asyura dan 3 Hari Sebulan","page":"24"}]},{"parentID":"root-bab-725","id":5,"text":"Masih Puasa di Malam Hari","page":"25","sub":[{"parentId":5,"id":"3-subsubbab","text":"Begitu Tertidur Wajib Segera Puasa","page":"25"},{"parentId":5,"id":"4-subsubbab","text":"Umar Melanggar Larangan Jima' Malam Hari","page":"26"}]},{"parentID":"root-bab-725","id":6,"text":"Perubahan Batas Mulai Puasa","page":"27","sub":[]}]
+Seja839	root-bab-123	BAB 1. Pensyariatan Puasa	6	[{"parentID":"root-bab-123","id":1,"text":"Al-Quran Al-Kariem","page":"8","sub":[]},{"parentID":"root-bab-123","id":2,"text":"As-Sunnah","page":"9","sub":[]},{"parentID":"root-bab-123","id":3,"text":"Al-Ijma'","page":"10","sub":[]}]
+Adab683	root-bab-560	BAB 1. Penyucian Hati Dari Sifat Tercela	7	[{"parentID":"root-bab-560","id":1,"text":"Bersihkan Hati","page":"7","sub":[]},{"parentID":"root-bab-560","id":2,"text":"Kedudukan Ilmu","page":"7","sub":[]},{"parentID":"root-bab-560","id":3,"text":"Syarat Menimba Ilmu","page":"7","sub":[]},{"parentID":"root-bab-560","id":4,"text":"Keberkahan Ilmu Karena Hati Yang Baik","page":"8","sub":[]},{"parentID":"root-bab-560","id":5,"text":"Terhalangnya Cahaya Memasuki Hati","page":"9","sub":[]}]
+Seja839	root-bab-672	BAB 3. Perbedaan	17	[{"parentID":"root-bab-672","id":1,"text":"Lebih Ringan","page":17,"sub":[]},{"parentID":"root-bab-672","id":2,"text":"Lebih Sedikit","page":19,"sub":[]},{"parentID":"root-bab-672","id":3,"text":"Disyariatkan Makan Sahur","page":19,"sub":[]}]
+\.
+
+
+--
+-- Name: tblbookcategories tblbookcategories_category_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookcategories
+    ADD CONSTRAINT tblbookcategories_category_name_key UNIQUE (category_name);
+
+
+--
+-- Name: tblbookcategories tblbookcategories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookcategories
+    ADD CONSTRAINT tblbookcategories_pkey PRIMARY KEY (pk_categoryid);
+
+
+--
+-- Name: tblbookdetail tblbookdetail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookdetail
+    ADD CONSTRAINT tblbookdetail_pkey PRIMARY KEY (pk_bookdetail);
+
+
+--
+-- Name: tblbookdetail tblbookdetail_title_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookdetail
+    ADD CONSTRAINT tblbookdetail_title_key UNIQUE (title);
+
+
+--
+-- Name: tblbooksubcategories tblbooksubcategories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbooksubcategories
+    ADD CONSTRAINT tblbooksubcategories_pkey PRIMARY KEY (pk_subcategoryid);
+
+
+--
+-- Name: tblbooksubcategories tblbooksubcategories_sub_category_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbooksubcategories
+    ADD CONSTRAINT tblbooksubcategories_sub_category_name_key UNIQUE (sub_category_name);
+
+
+--
+-- Name: tblbookdetail tblbookdetail_pk_categoryid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookdetail
+    ADD CONSTRAINT tblbookdetail_pk_categoryid_fkey FOREIGN KEY (pk_categoryid) REFERENCES public.tblbookcategories(pk_categoryid) ON DELETE CASCADE;
+
+
+--
+-- Name: tblbookdetail tblbookdetail_pk_subcategoryid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbookdetail
+    ADD CONSTRAINT tblbookdetail_pk_subcategoryid_fkey FOREIGN KEY (pk_subcategoryid) REFERENCES public.tblbooksubcategories(pk_subcategoryid) ON DELETE CASCADE;
+
+
+--
+-- Name: tblbooksubcategories tblbooksubcategories_pk_categoryid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblbooksubcategories
+    ADD CONSTRAINT tblbooksubcategories_pk_categoryid_fkey FOREIGN KEY (pk_categoryid) REFERENCES public.tblbookcategories(pk_categoryid) ON DELETE CASCADE;
+
+
+--
+-- Name: tblofcontent tblofcontent_pk_bookdetail_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.tblofcontent
+    ADD CONSTRAINT tblofcontent_pk_bookdetail_fkey FOREIGN KEY (pk_bookdetail) REFERENCES public.tblbookdetail(pk_bookdetail) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
